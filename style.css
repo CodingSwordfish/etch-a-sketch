@@ -1,12 +1,36 @@
-* {
-    box-sizing: border-box;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
 }
 
-#container {
+h1 {
+    margin: 0px;
+}
+#header {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    width: 600px;
-    height: 600px;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
+   margin: 0px;
+}
+
+#board {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 40vw;
+    margin-top: 20px;
 }
 
