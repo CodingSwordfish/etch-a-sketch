@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded",(e)=>{
     let white = document.querySelector("#white");
     let message = document.querySelector("#message");
 let random = document.querySelector("#random");
+
     
 })
 
