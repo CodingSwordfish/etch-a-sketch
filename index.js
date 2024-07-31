@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",(e)=>{
     let reset = document.querySelector("#reset");  
     let white = document.querySelector("#white");
     let message = document.querySelector("#message");
-
+let random = document.querySelector("#random");
     
 })
 
@@ -21,7 +21,7 @@ message.style.fontWeight= "bold";
                 let height = parseInt(styles.height);
                 // let border = styles.border;
                 let divs = document.createElement("div");
-               
+                divs.addEventListener("mouseover",colorDivs)
                 
                 divs.style.width = `${width/size}px`;
                 divs.style.height = `${height/size}px`;
@@ -121,12 +121,24 @@ reset.addEventListener("click",(e)=>{
 })
       
 
-function colorDiv(){
-
+function colorDivs(){
+if(color === "white"){
+    this.style.backgroundColor = "white"
+} else if(color ==="random"){
+    function getRandomColor() {
+        const hue = Math.floor(Math.random() * 360);
+        const saturation = Math.floor(Math.random() * 100) + 25; // Ensure minimum saturation
+        const lightness = Math.floor(Math.random() * 75) + 25; // Ensure minimum lightness
+      
+        return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+      }
+    this.style.backgroundColor = getRandomColor();
+}
 }
 
-function blackPen() {
-
+function setColor(colorChoice) {
+color = colorChoice;
+console.log(color);
 }
 
 
