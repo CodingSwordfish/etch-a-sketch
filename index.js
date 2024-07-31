@@ -22,8 +22,8 @@ message.style.fontWeight= "bold";
                 let height = parseInt(styles.height);
                 // let border = styles.border;
                 let divs = document.createElement("div");
-                divs.addEventListener("mouseover",colorDivs)
-                
+                // divs.addEventListener("mouseover",colorDivs)
+                divs.classList.add("square");
                 divs.style.width = `${width/size}px`;
                 divs.style.height = `${height/size}px`;
                 
@@ -122,25 +122,50 @@ reset.addEventListener("click",(e)=>{
 })
       
 
-function colorDivs(){
-if(color === "white"){
-    this.style.backgroundColor = "white"
-} else if(color ==="random"){
-    function getRandomColor() {
-        const hue = Math.floor(Math.random() * 360);
-        const saturation = Math.floor(Math.random() * 100) + 25; // Ensure minimum saturation
-        const lightness = Math.floor(Math.random() * 75) + 25; // Ensure minimum lightness
-      
-        return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-      }
-    this.style.backgroundColor = getRandomColor();
-}
-}
 
-function setColor(colorChoice) {
-color = colorChoice;
-console.log(color);
-}
+let isDrawing = false;
+
+white.addEventListener("click", (e) => {
+    let color = "white"; // Store the chosen color
+  
+  document.querySelector("body").addEventListener("click",(e)=>{
+
+    isDrawing = !isDrawing;
+
+    
+    
+  })
+    // Event listener on the board (assuming the div container has an id of "board")
+    document.getElementById("board").addEventListener("mouseover", (e) => {
+        if (isDrawing && e.target.classList.contains("square")) { // Check for class "square"
+          e.target.style.backgroundColor = color;
+        }
+      });
+  });
+
+  
+  random.addEventListener("click", (e) => {
+      document.querySelector("body").addEventListener("click",(e)=>{
+
+        
+        isDrawing = !isDrawing;
+        
+      })
+      document.getElementById("board").addEventListener("mouseover", (e) => {
+        if (isDrawing && e.target.classList.contains("square")) { // Check for class "square"
+          e.target.style.backgroundColor = `hsl(${Math.floor(Math.random() * 360)}, ${Math.floor(Math.random() * 100) + 25}%, ${Math.floor(Math.random() * 75) + 25}%)`;
+        } 
+      });
+             
+   
+    
+    
+  });
+  
+// function setColor(colorChoice) {
+
+
+// }
 
 
 
