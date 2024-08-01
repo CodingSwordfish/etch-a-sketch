@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   let erase = document.querySelector("#erase");
 });
 
-message.textContent = "Board resolution is 16 x 16. You are ready to draw!";
+message.textContent = " 16 x 16";
 
 function createBoard(size) {
   let squareBoxes = size * size;
@@ -34,14 +34,13 @@ btn_popup.addEventListener("click", (e) => {
     alert("Enter a number between 1 and 45");
   } else if (input === null || input === "" || typeof input !== "number") {
     alert("Enter a number between 1 and 45");
-    message.textContent = `Board resolution default is 16 x 16.`;
+    message.textContent = `16 x 16`;
   } else if (input > 1 && input < 46) {
     board.innerHTML = null;
     let size = input;
     createBoard(size);
     message.textContent = "";
-    message.textContent += `Board resolution is ${input} x ${input}. \n
-                  You are ready to draw! `;
+    message.textContent += `${input} x ${input}`;
   }
 });
 
@@ -50,7 +49,7 @@ reset.addEventListener("click", (e) => {
   createBoard(16);
   alert("Board Resetting, Get ready to Draw!");
   message.textContent = "";
-  message.textContent = `Board resolution is 16 x 16. You are ready to draw!`;
+  message.textContent = `16 x 16`;
   message.style.fontWeight = "bold";
   message.style.color = "green";
 });
@@ -64,6 +63,54 @@ white.addEventListener("click", (e) => {
       e.target.style.backgroundColor = color;
     }
   });
+});
+
+reset.addEventListener("mouseover", (e) => {
+  e.target.style.width = "150px";
+  e.target.style.height = "65px";
+  e.target.style.marginLeft = "30px";
+});
+
+reset.addEventListener("mouseout", (e) => {
+  e.target.style.width = "100px";
+  e.target.style.height = "50px";
+  e.target.style.marginLeft = "0px";
+});
+
+random.addEventListener("mouseover", (e) => {
+  e.target.style.width = "150px";
+  e.target.style.height = "65px";
+  e.target.style.marginLeft = "30px";
+});
+
+random.addEventListener("mouseout", (e) => {
+  e.target.style.width = "100px";
+  e.target.style.height = "50px";
+  e.target.style.marginLeft = "0px";
+});
+
+white.addEventListener("mouseover", (e) => {
+  e.target.style.width = "150px";
+  e.target.style.height = "65px";
+  e.target.style.marginLeft = "30px";
+});
+
+white.addEventListener("mouseout", (e) => {
+  e.target.style.width = "100px";
+  e.target.style.height = "50px";
+  e.target.style.marginLeft = "0px";
+});
+
+erase.addEventListener("mouseover", (e) => {
+  e.target.style.width = "150px";
+  e.target.style.height = "65px";
+  e.target.style.marginLeft = "30px";
+});
+
+erase.addEventListener("mouseout", (e) => {
+  e.target.style.width = "100px";
+  e.target.style.height = "50px";
+  e.target.style.marginLeft = "0px";
 });
 
 random.addEventListener("click", (e) => {
