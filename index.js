@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 });
 
 message.textContent = "Board resolution is 16 x 16. You are ready to draw!";
-message.style.fontWeight = "bold";
-message.style.color = "green";
 
 function createBoard(size) {
   let squareBoxes = size * size;
@@ -26,43 +24,25 @@ function createBoard(size) {
 }
 createBoard(16);
 
-function getSize() {
-  let input = prompt("Enter a number between 1 and 45");
-  if (input === null) {
-    createBoard(16);
-    alert("Enter a number between 1 and 45");
-    message.textContent = `Board resolution default is 16 x 16.`;
-    message.style.color = "green";
-    message.style.fontWeight = "bold";
-  }
+let btn_popup = document.querySelector("#popup");
 
-  if (input == "") {
-    createBoard(16);
+btn_popup.addEventListener("click", (e) => {
+  let input = parseInt(prompt("Enter a number between 1 and 45"));
+  if (input < 1) {
+    alert("Enter a number between 1 and 45");
+  } else if (input > 45) {
+    alert("Enter a number between 1 and 45");
+  } else if (input === null || input === "" || typeof input !== "number") {
     alert("Enter a number between 1 and 45");
     message.textContent = `Board resolution default is 16 x 16.`;
-    message.style.color = "green";
-    message.style.fontWeight = "bold";
-  } else if (input < 0 || input > 45) {
-    message.textContent = "Provide a number between 1 and 45";
-    message.style.fontWeight = "bold";
-    message.style.color = "orange";
-    alert("Enter a number between 1 and 45");
-    createBoard(16);
-  } else if (input) {
+  } else if (input > 1 && input < 46) {
+    board.innerHTML = null;
+    let size = input;
+    createBoard(size);
     message.textContent = "";
     message.textContent += `Board resolution is ${input} x ${input}. \n
-               You are ready to draw! `;
-    message.style.fontWeight = "bold";
-    message.style.color = "green";
-    return input;
+                  You are ready to draw! `;
   }
-}
-
-let btn_popup = document.querySelector("#popup");
-btn_popup.addEventListener("click", (e) => {
-  board.innerHTML = "";
-  let size = getSize();
-  createBoard(size);
 });
 
 reset.addEventListener("click", (e) => {
