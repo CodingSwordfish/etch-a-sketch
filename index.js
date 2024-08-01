@@ -10,8 +10,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 message.textContent = "Board resolution is 16 x 16. You are ready to draw!";
 message.style.fontWeight = "bold";
 message.style.color = "green";
-// random.style.backgroundColor = `left,linear-gradient(blue,red)`;
-
 
 function createBoard(size) {
   let squareBoxes = size * size;
@@ -80,7 +78,7 @@ reset.addEventListener("click", (e) => {
 let isDrawing = false;
 
 white.addEventListener("click", (e) => {
-  let color = "white"; // Store the chosen color
+  let color = "white";
   document.getElementById("board").addEventListener("mouseover", (e) => {
     if (isDrawing && e.target.classList.contains("square")) {
       e.target.style.backgroundColor = color;
@@ -91,7 +89,6 @@ white.addEventListener("click", (e) => {
 random.addEventListener("click", (e) => {
   document.getElementById("board").addEventListener("mouseover", (e) => {
     if (isDrawing && e.target.classList.contains("square")) {
-      // Check for class "square"
       e.target.style.backgroundColor = `hsl(${Math.floor(
         Math.random() * 360
       )}, ${Math.floor(Math.random() * 100) + 25}%, ${
@@ -104,14 +101,16 @@ random.addEventListener("click", (e) => {
 erase.addEventListener("click", (e) => {
   document.getElementById("board").addEventListener("mouseover", (e) => {
     if (isDrawing && e.target.classList.contains("square")) {
-      // Check for class "square"
       e.target.style.backgroundColor = `black`;
     }
   });
 });
 
 document.body.addEventListener("click", (event) => {
-  if (event.target.tagName !== "BUTTON" && event.target.classList.contains("square")) {
+  if (
+    event.target.tagName !== "BUTTON" &&
+    event.target.classList.contains("square")
+  ) {
     isDrawing = !isDrawing;
   }
 });
