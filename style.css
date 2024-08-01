@@ -23,7 +23,7 @@ h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 500px;
+    width: 800px;
     height: 500px;
     border: 1px solid black;
     background-color: black;
@@ -45,5 +45,18 @@ h1 {
 
 button {
     width: 150px;
+}
 
+#white {
+    background-color: white;
+}
+
+#erase {
+    background-color: black;
+    color: white;
+}
+
+#reset {
+    background-color: red;
+    color: white;
 }

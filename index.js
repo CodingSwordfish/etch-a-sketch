@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 message.textContent = "Board resolution is 16 x 16. You are ready to draw!";
 message.style.fontWeight = "bold";
 message.style.color = "green";
+// random.style.backgroundColor = `left,linear-gradient(blue,red)`;
+
 
 function createBoard(size) {
   let squareBoxes = size * size;
@@ -92,8 +94,9 @@ random.addEventListener("click", (e) => {
       // Check for class "square"
       e.target.style.backgroundColor = `hsl(${Math.floor(
         Math.random() * 360
-      )}, ${Math.floor(Math.random() * 100) + 25}%, ${Math.floor(Math.random() * 75) + 25
-        }%)`;
+      )}, ${Math.floor(Math.random() * 100) + 25}%, ${
+        Math.floor(Math.random() * 75) + 25
+      }%)`;
     }
   });
 });
@@ -108,7 +111,7 @@ erase.addEventListener("click", (e) => {
 });
 
 document.body.addEventListener("click", (event) => {
-  if (event.target.tagName !== "BUTTON") {
+  if (event.target.tagName !== "BUTTON" && event.target.classList.contains("square")) {
     isDrawing = !isDrawing;
   }
 });
